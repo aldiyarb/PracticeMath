@@ -1,0 +1,20 @@
+var express = require('express');
+var router = express.Router();
+const userController = require('../controllers/user.controller');
+const Role = require('../_helpers/role');
+const authorize = require('../_helpers/authorize');
+//Routing for user services
+router.post('/completed', userController.addCompleted);
+router.post('/attempted', userController.addAttempted);
+router.post('/favourite', userController.addFavourite);
+router.post('/delfavourite', userController.delFavourite);
+router.post('/authenticate', userController.authenticate);
+router.post('/register', userController.register);
+router.post('/points', userController.updatePoints);
+router.post('/retry', userController.updateRetry);
+router.get('/getcompleted', userController.getCompleted);
+router.get('/getattempted', userController.getAttempted);
+router.get('/getfavourite', userController.getFavourites);
+router.get('/byusername', userController.getCurrUser);
+router.get('/allusers', userController.getAllUsers);
+module.exports = router;
